@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>Add a New Movie</title>
+</head>
+<body>
+    <style>
+        body {
+          background-image: url('https://www.shutterstock.com/image-photo/cinema-blank-wide-screen-people-260nw-2314929885.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+      background-size: cover;
+        }
+        </style>
+        
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Add a New Movie</h1>
+
+    <form action="/users/<%= user._id %>/applications" method="POST">
+        <label for="title">Movie Title</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="Actor">Star Actor</label>
+        <input type="text" name="Actor" id="Actor" required>
+
+        <label for="releasedate">Release Date</label>
+        <input type="date" name="releasedate" id="releasedate" required>
+
+        <label for="description">Description</label>
+        <textarea name="description" id="description" required></textarea>
+
+        <label for="rating">rating</label>
+        <select name="rating" id="rating" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <button type="submit">Add movie</button>
+    </form>
+
+</body>
+</html>

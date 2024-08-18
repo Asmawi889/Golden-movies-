@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Editing <%= application.title %></title>
+</head>
+<body>
+  <style>
+    body {
+      background-image: url('https://www.shutterstock.com/image-photo/cinema-blank-wide-screen-people-260nw-2314929885.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+  background-size: cover;
+    }
+    </style>
+
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= application.title  %></h1>
+    <form 
+      action="/users/<%= user._id %>/applications/<%= application._id %>?_method=PUT"
+      method="POST"
+    >
+      <label for="title">title</label>
+      <input 
+        type="text" 
+        name="title" 
+        id="title" 
+        value="<%= application.title %>"
+      >
+      <label for="Actor">Actor:</label>
+      <input type="text" name="Actor" id="Actor" value="<%= application.Actor %>">
+
+      <label for="releasedate">Release Date</label>
+        <input type="date" name="releasedate" id="releasedate" value="<%= application.releasedate %>" >
+        
+
+      <label for="description">Description:</label>
+      <textarea name="description" id="description"> </textarea>
+      
+      <label for="rating">rating:</label>
+      <select id="rating" name="rating">
+        <option 
+          value= "1" 
+          <%= application.rating === "1" ? "selected" : "" %>
+        >
+          1
+        </option>
+        <option 
+          value= "2" 
+          <%= application.rating === "2" ? "selected" : "" %>
+        >
+          2
+        </option>
+        <option 
+          value="3"
+          <%= application.rating === "3" ? "selected" : "" %> 
+        >
+          3
+        </option>
+        <option 
+          value="4" 
+          <%= application.rating === "4" ? "selected" : "" %>
+        >
+          4
+        </option>
+        <option
+          value="5"
+          <%= application.rating === "5" ? "selected" : "" %>
+        >
+          5
+        </option>
+      </select>
+      <button type="submit">Update Movie</button>
+    </form>
+</body>
+</html>

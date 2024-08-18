@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title><%= application.title %></title>
+  </head>
+  <body>
+
+    <style>
+      body {
+        background-image: url('https://www.shutterstock.com/image-photo/cinema-blank-wide-screen-people-260nw-2314929885.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    background-size: cover;
+      }
+      </style>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1 class="title"><%= application.title %> </h1>
+
+    <% if (application.notes) { %>
+    <p>Notes: <%= application.notes %></p>
+    <% } %> <% if (application.postingLink) { %>
+
+    <a href="<%= application.postingLink %>" target="_blank">View job posting</a>
+
+    <% } %>
+    
+    <p class="subtitle">Movie Actor: <%= application.Actor %></p>
+    <p class="subtitle">Movie description: <%= application.description %></p>
+<!-- <table>
+   <td> <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit" class="button" >Edit this Movie</a>
+    
+  </td>
+   <td>
+    <form
+      action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
+      method="post">
+      <button type="submit" class="remove-button">Remove this movie</button>
+    </form>
+  </td>
+  </table> -->
+  <div class="buttons">
+    <div>
+      <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit" class="button" >Edit this Movie</a>
+    </div>
+    <div>
+    <form
+    action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE"
+    method="post">
+    <button type="submit" class="remove-button">Remove this movie</button>
+  </form>
+</div>
+  </div>
+  </body>
+</html>
